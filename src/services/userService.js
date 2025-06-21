@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken'); // Biblioteca para geração de tokens JWT
 const UserModel = require("../models/userModel");
 
 class UserService {
+
     // Método para registrar um novo usuário
     static async registerUser(user) {
         const { email, password, role } = user;
@@ -20,6 +21,7 @@ class UserService {
         // Retorna os dados de sucesso (sem lançar erro)
         return { message: 'Usuário registrado com sucesso', id };
     }
+
     // Método para autenticar o usuário e gerar token JWT
     static async loginUser({ email, password }) {
         // Busca o usuário pelo e-mail
@@ -42,4 +44,5 @@ class UserService {
         return { token };
     }
 }
+
 module.exports = UserService;

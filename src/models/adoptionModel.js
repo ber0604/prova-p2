@@ -2,7 +2,7 @@ const db = require('../config/database');
 
 class AdoptionModel {
 
-    static async getAllPetss() {
+    static async getAllAdoptions() {
         const [rows] = await db.query('SELECT * FROM adoptions');
         return rows;
     }

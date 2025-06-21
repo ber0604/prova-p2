@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
-// Importa a biblioteca JWT para verificar e decodificar tokens de autenticação
-// Middleware para autenticar o token JWT enviado pelo cliente
+
 function authenticateToken(req, res, next) {
     // Recupera o cabeçalho de autorização da requisição
     const authHeader = req.headers['authorization'];
@@ -18,6 +17,7 @@ function authenticateToken(req, res, next) {
         next();
     });
 }
+
 // Middleware para autorizar o acesso com base na função (role) do usuário
 function authorizeRole(role) {
     return (req, res, next) => {

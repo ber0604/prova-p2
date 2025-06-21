@@ -1,11 +1,11 @@
 class ProtectedController {
+
     // Método que responde ao painel do usuário autenticado
     static dashboard(req, res) {
         try {
             // Responde com uma mensagem usando o e-mail do usuário autenticado
             return res.status(200).json({
-                message: `Bem-vindo ao painel,
-   ${req.user.email}`
+                message: `Bem-vindo ao painel, ${req.user.email}`
             });
         } catch (error) {
             // Em caso de erro inesperado, retorna erro interno do servidor
@@ -15,10 +15,11 @@ class ProtectedController {
             });
         }
     }
+
     // Método exclusivo para usuários com permissão de admin
     static adminOnly(req, res) {
         try {
-    // Responde com uma mensagem personalizada usando o e-mail do
+            // Responde com uma mensagem personalizada usando o e-mail do
             return res.status(200).json({
                 message: `Bem-vindo à área admin,
                     ${req.user.email}`
@@ -32,5 +33,5 @@ class ProtectedController {
         }
     }
 }
-// Exporta o controlador para ser utilizado nas rotas protegidas
+
 module.exports = ProtectedController;
