@@ -6,6 +6,8 @@ const router = express.Router();
 
 router.get('/pets/available', PublicController.petsAvailable);
 
-router.get('/users', PublicController.users);
+router.post('/users', authorizeUserRegister, PublicController.registerUser);
+
+router.post('/login', PublicController.login);
 
 module.exports = router;

@@ -1,13 +1,12 @@
 const db = require('../config/database');
 
 class UserModel {
-    // Busca um usuário pelo email
+
     static async findByEmail(email) {
         const [rows] = await db.query('SELECT * FROM users WHERE email = ?', [email]);
         return rows[0];
     }
 
-    // Cria um novo usuário
     static async create(user) {
         const { name, email, password, role } = user;
         const [result] = await db.query(
@@ -23,7 +22,7 @@ class UserModel {
         return rows[0];
     }
 
-    static async getUsuarioAllUsers() {
+    static async getUsers() {
         const [rows] = await db.query('SELECT * FROM users');
         return rows[0];
     }

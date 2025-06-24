@@ -1,32 +1,37 @@
 const PetService = require('../services/petService');
-const AdoptionModel = require('../models/adoptionModel');
+const UserService = require('../services/userService');
 
 class PublicController {
 
-    // Método que responde à rota pública inicial
-    static users(req, res) {
+    static async registerUser(req, res) {
         try {
-            // Envia uma mensagem de boas-vindas sem exigir autenticação
-            return res.status(200).send('Bem-vindo à API pública!');
+            const result = await UserService.registerUser(req.body);
+            return res.status(201).json(result);
         } catch (error) {
-            // Em caso de erro inesperado, retorna status 500 com a mensagem do erro
-            return res.status(500).json({
-                message: 'Erro ao acessar a rota pública',
-                error: error.message
-            });
+            return res.status(409).json({ message: error.message });
         }
     }
 
-    // Método que responde à rota pública inicial
+    static async login(req, res) {
+        try {
+            const result = await UserService.loginUser(req.body);
+            return res.status(200).json(result);
+        } catch (error) {
+            const status =
+                error.message === 'Usuário não encontrado' || error.message === 'Senha inválida'
+                    ? 401 // Não autorizado
+                    : 500; // Erro interno do servidor
+            return res.status(status).json({ message: error.message });
+        }
+    }
+
     static petsAvailable(req, res) {
         try {
-            // Envia uma mensagem de boas-vindas sem exigir autenticação
             let pets = PetService.listPetsAvailable();
             return res.status(200).json({
                 petsDisponiveis: pets
             });
         } catch (error) {
-            // Em caso de erro inesperado, retorna status 500 com a mensagem do erro
             return res.status(500).json({
                 message: 'Erro ao acessar a rota pública',
                 error: error.message

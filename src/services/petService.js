@@ -15,12 +15,10 @@ class PetService {
     }
 
     static async addPet(pet) {
-        validatePet(pet);
         return await PetModel.createPet(pet);
     }
 
     static async editPet(id, pet) {
-        validatePet(pet);
         await PetModel.updatePet(id, pet);
     }
 

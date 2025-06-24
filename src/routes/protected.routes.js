@@ -6,8 +6,18 @@ const ProtectedController = require('../controllers/protected.controller');
 
 const router = express.Router();
 
-router.get('/dashboard', authenticateToken, ProtectedController.dashboard);
+router.get('/users', authenticateToken, authorizeRole('admin'), ProtectedController.getUsers);
+router.get('/users/:id', authenticateToken, ProtectedController.getUserById);
+router.put('/users/:id', authenticateToken, ProtectedController.updateUserById);
+router.delete('/users/:id', authenticateToken, authorizeRole('admin'), ProtectedController.deleteUserById);
 
-router.get('/admin', authenticateToken, authorizeRole('admin'), ProtectedController.adminOnly);
+router.get('/pets', authenticateToken, authorizeRole('admin'), ProtectedController.getPets);
+router.get('/pets/:id', authenticateToken, authorizeRole('admin'), ProtectedController.getPetById);
+router.post('/pets', authenticateToken, authorizeRole('admin'), ProtectedController.createPet);
+router.put('/pets/:id', authenticateToken, authorizeRole('admin'), ProtectedController.updatePetById);
+router.delete('/pets/:id', authenticateToken, authorizeRole('admin'), authorizeRole('admin'), ProtectedController.deletePetById);
+
+router.get('/adoptions', authenticateToken, authorizeRole('admin'), ProtectedController.getAdoptions);
+router.post('/adoptions', authenticateToken, authorizeRole('adopter'), ProtectedController.createAdoption);
 
 module.exports = router;

@@ -22,7 +22,7 @@ class PetModel {
     static async createPet({ name, age, species, size, status, descrpition }) {
         const [result] = await db.query(
             'INSERT INTO pets (name, age, species, size, status, descrpition) VALUES (?, ?, ?, ?, ?, ?)',
-            [name, age, species, size, status, descrpition]
+            [name, age, species, size, 'available', descrpition]
         );
         return { id: result.insertId,  name, age, species, size, status, descrpition };
     }
