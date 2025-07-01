@@ -15,7 +15,7 @@ router.get('/pets', authenticateToken, authorizeRole('admin'), ProtectedControll
 router.get('/pets/:id', authenticateToken, authorizeRole('admin'), ProtectedController.getPetById);
 router.post('/pets', authenticateToken, authorizeRole('admin'), ProtectedController.createPet);
 router.put('/pets/:id', authenticateToken, authorizeRole('admin'), ProtectedController.updatePetById);
-router.delete('/pets/:id', authenticateToken, authorizeRole('admin'), authorizeRole('admin'), ProtectedController.deletePetById);
+router.delete('/pets/:id', authenticateToken, authorizeRole('admin'), ProtectedController.deletePetById);
 
 router.get('/adoptions', authenticateToken, authorizeRole('admin'), ProtectedController.getAdoptions);
 router.post('/adoptions', authenticateToken, authorizeRole('adopter'), ProtectedController.createAdoption);
