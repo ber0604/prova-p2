@@ -1,14 +1,14 @@
 const express = require('express');
 
-const { authenticateToken, authorizeRole } = require('../middlewares/auth.middleware');
+const { authenticateToken, authorizeRole, authorizeUserEdition } = require('../middlewares/auth.middleware');
 
 const ProtectedController = require('../controllers/protected.controller');
 
 const router = express.Router();
 
 router.get('/users', authenticateToken, authorizeRole('admin'), ProtectedController.getUsers);
-router.get('/users/:id', authenticateToken, ProtectedController.getUserById);
-router.put('/users/:id', authenticateToken, ProtectedController.updateUserById);
+router.get('/users/:id', authenticateToken, authorizeUserEdition(), ProtectedController.getUserById);
+router.put('/users/:id', authenticateToken, authorizeUserEdition(), ProtectedController.updateUserById);
 router.delete('/users/:id', authenticateToken, authorizeRole('admin'), ProtectedController.deleteUserById);
 
 router.get('/pets', authenticateToken, authorizeRole('admin'), ProtectedController.getPets);

@@ -26,9 +26,7 @@ class UserService {
             throw new Error('Senha inválida');
         }
         const token = jwt.sign(
-            { email: user.email, role: user.role },
-            cess.env.JWT_SECRET,
-            { expiresIn: '1h' }
+            { email: user.email, role: user.role, id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' }
         );
         return { token };
     }
@@ -39,11 +37,6 @@ class UserService {
     }
 
     static async getUserById(id) {
-        const user = await UserModel.getUsuarioById(id);
-        return { user };
-    }
-
-    static async updateUserById(id) {
         const user = await UserModel.getUsuarioById(id);
         return { user };
     }

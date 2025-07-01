@@ -29,8 +29,15 @@ class PetModel {
 
     static async updatePet(id, { name, age, species, size, status, descrpition }) {
         await db.query(
-            'UPDATE products SET name = ?, age = ?, species = ?, size = ?, status = ?, descrpition = ? WHERE id = ?',
+            'UPDATE pets SET name = ?, age = ?, species = ?, size = ?, status = ?, descrpition = ? WHERE id = ?',
             [name, age, species, size, status, descrpition, id]
+        );
+    }
+
+    static async updateStatusPet(id, status) {
+        await db.query(
+            'UPDATE pets SET status = ? WHERE id = ?',
+            [status, id]
         );
     }
 

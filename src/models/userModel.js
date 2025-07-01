@@ -16,22 +16,50 @@ class UserModel {
     }
 
     static async getUsuarioById(id) {
-        const [rows] = await db.query('SELECT * FROM users WHERE id = ?', [
+        const [rows] = await db.query('SELECT id, name, email, role FROM users WHERE id = ?', [
             id,
         ]);
         return rows[0];
     }
 
     static async getUsers() {
-        const [rows] = await db.query('SELECT * FROM users');
+        const [rows] = await db.query('SELECT id, name, email, role FROM users');
         return rows[0];
     }
 
-    static async updateUser(id, { name, email, password, role }) {
-        await db.query(
-            'UPDATE users SET name = ?, email = ?, password = ?, role = ? WHERE id = ?',
-            [name, email, password, role, id]
-        );
+    static async updateUser(id, userData) {
+        const fields = [];
+        const values = [];
+
+        if (userData.name !== undefined) {
+            fields.push('name = ?');
+            values.push(userData.name);
+        }
+
+        if (userData.email !== undefined) {
+            fields.push('email = ?');
+            values.push(userData.email);
+        }
+
+        if (userData.password !== undefined) {
+            fields.push('password = ?');
+            const hashed = await bcrypt.hash(userData.password, 10);
+            values.push(hashed);
+        }
+
+        if (userData.role !== undefined) {
+            fields.push('role = ?');
+            values.push(userData.role);
+        }
+
+        if (fields.length === 0) {
+            throw new Error('Nenhum campo para atualizar');
+        }
+
+        const query = `UPDATE users SET ${fields.join(', ')} WHERE id = ?`;
+        values.push(id);
+
+        await db.query(query, values);
     }
 
     static async deleteUser(id) {

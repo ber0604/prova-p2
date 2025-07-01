@@ -19,12 +19,12 @@ class ProtectedController {
         }
     }
 
-    static getUserById(req, res) {
+    static async getUserById(req, res) {
         try {
-            const result = UserService.getUserById(req.body.id);
+            const result = await UserService.getUserById(req.params.id);
 
             return res.status(200).json({
-                users: result
+                result
             });
         } catch (error) {
             return res.status(500).json({
@@ -36,7 +36,7 @@ class ProtectedController {
 
     static async updateUserById(req, res) {
         try {
-            const { id } = req.params;
+            const id = req.params.id;
             await UserService.updateUserById(id, req.body);
             res.json({ message: 'Usuário atualizado com sucesso.' });
         } catch (error) {

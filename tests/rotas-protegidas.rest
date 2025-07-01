@@ -1,0 +1,86 @@
+@baseURL = http://localhost:3000
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlcm5hcmRvQGlmcnMiLCJyb2xlIjoiYWRvcHRlZCIsImlkIjoyLCJpYXQiOjE3NTEzMzU3NjcsImV4cCI6MTc1MTMzOTM2N30.LC4jWCHLi4g-ZU2rENQERi4GaoLzcrnLs1HMyhcJjdc
+
+### 📋 Listar todos os usuários
+GET {{baseURL}}/users
+Authorization: {{token}}
+
+###
+
+### 🔎 Buscar um usuário específico (substitua pelo ID real)
+GET {{baseURL}}/users/2
+Authorization: {{token}}
+
+###
+
+### ✏️ Atualizar dados do usuário (substitua o ID)
+PUT {{baseURL}}/users/1
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "name": "João Atualizado",
+  "email": "joao_atualizado@example.com"
+}
+
+### ✏️ Delete dados do usuário (substitua o ID)
+DELETE {{baseURL}}/users/1
+Content-Type: application/json
+Authorization: {{token}}
+
+
+### 📋 Listar todos os pets
+GET {{baseURL}}/pets
+Authorization: {{token}}
+
+###
+
+### 🔎 Buscar um pet específico (substitua pelo ID real)
+GET {{baseURL}}/pets/1
+Authorization: {{token}}
+
+###
+
+### ✏️ Atualizar dados do pet (substitua o ID)
+POST {{baseURL}}/pets
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "name": "cachorro bonito",
+  "species": "dog",
+  "status": "available",
+  "size": "medium",
+  "description": "nao morde o dono",
+  "age": 5
+}
+
+### ✏️ Atualizar dados do pet (substitua o ID)
+PUT {{baseURL}}/pets/1
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "name": "cachorro Atualizado"
+}
+
+### ✏️ Delete dados do pet (substitua o ID)
+DELETE {{baseURL}}/pets/1
+Content-Type: application/json
+Authorization: {{token}}
+
+### 🔎 Buscar todas adoptions 
+GET {{baseURL}}/adoptions
+Authorization: {{token}}
+
+###
+
+### ✏️ Realizar adoção do pet (substitua o ID)
+POST {{baseURL}}/pets
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "pet_id": 3,
+  "user_id": 5
+}

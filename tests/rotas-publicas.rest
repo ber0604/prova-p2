@@ -1,0 +1,25 @@
+@baseURL = http://localhost:3000
+
+### Cadastro de novo usuário
+POST {{baseURL}}/users
+Content-Type: application/json
+
+{
+    "name" : "user",
+    "email": "bernardo@ifrs",
+    "password": "senhanova",
+    "role": "adopted"
+}
+
+### Login do novo usuário (pegar o token gerado abaixo)
+POST {{baseURL}}/login
+Content-Type: application/json
+
+{
+    "email": "admin@sistema2.com",
+    "password": "admin123"
+}
+
+### Consulta para buscar pets disponíveis
+GET {{baseURL}}/pets/available
+Content-Type: application/json

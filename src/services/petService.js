@@ -23,6 +23,13 @@ class PetService {
     }
 
     static async removePet(id) {
+        const pet = await PetModel.getPetById(id);
+        if (!pet) {
+            throw new Error('Pet not found');
+        }
+        if (pet.status === 'adopted') {
+            throw new Error('Pet cannot be deleted because it has been adopted');
+        }
         await PetModel.deletePet(id);
     }
 }
