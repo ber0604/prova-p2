@@ -5,10 +5,10 @@ POST {{baseURL}}/users
 Content-Type: application/json
 
 {
-    "name" : "user",
-    "email": "bernardo@ifrs",
+    "name" : "user2",
+    "email": "bernardo2@ifrs",
     "password": "senhanova",
-    "role": "adopted"
+    "role": "adopter"
 }
 
 ### Login do novo usuário (pegar o token gerado abaixo)
@@ -16,8 +16,8 @@ POST {{baseURL}}/login
 Content-Type: application/json
 
 {
-    "email": "admin@sistema2.com",
-    "password": "admin123"
+    "email": "bernardo@ifrs",
+    "password": "senhanova"
 }
 
 ### Consulta para buscar pets disponíveis

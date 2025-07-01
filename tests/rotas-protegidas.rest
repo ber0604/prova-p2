@@ -1,5 +1,5 @@
 @baseURL = http://localhost:3000
-@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHNpc3RlbWEyLmNvbSIsInJvbGUiOiJhZG1pbiIsImlkIjo0LCJpYXQiOjE3NTEzMzc0ODgsImV4cCI6MTc1MTM0MTA4OH0.dshkXmQCEcvVVPE4HdvEej9lsDlu9X1vE34FFBDP3YA
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlcm5hcmRvQGlmcnMiLCJyb2xlIjoiYWRvcHRlZCIsImlkIjoyLCJpYXQiOjE3NTEzMzgwNzMsImV4cCI6MTc1MTM0MTY3M30.eGsNJXN2wBVPEl-V1-5PzLYAYHgUh_2xj9KVWsGZWv0
 
 ### 📋 Listar todos os usuários
 GET {{baseURL}}/users
@@ -75,7 +75,7 @@ Authorization: {{token}}
 ###
 
 ### ✏️ Realizar adoção do pet (substitua o ID)
-POST {{baseURL}}/pets
+POST {{baseURL}}/adoptions
 Content-Type: application/json
 Authorization: {{token}}
 
