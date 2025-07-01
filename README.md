@@ -6,22 +6,19 @@ Esta é uma API RESTful para gerenciamento de usuários, pets e adoções. Desen
 
 ## 🚀 Início Rápido
 
-### 🔧 Banco de dados  
+### 🔧 Banco de dados
+
 `Entrar no arquivo src\config\database.sql e rodar no seu banco de preferência, depois no .env configura-lo`
 
 `Entrar no arquivo src\config\createUserAdmin.js e rodar o script(criar primeiro usuário admin): node src/config/createUserAdmin.js`
 
-### 🔧 Instalação  
+### 🔧 Instalação
+
 `npm install`
 
-`npm init -y`
+### ▶️ Executar o projeto
 
-`npm install express mysql2 jsonwebtoken bcryptjs dotenv`
-
-`npm install --save-dev nodemon`
-
-### ▶️ Executar o projeto  
-`npm run dev`  
+`npm run dev`
 
 A API será iniciada em:  
 `http://localhost:3000`
@@ -43,6 +40,7 @@ A autenticação é feita via **JWT**. Após o login, use o token retornado para
 **Cadastro**  
 POST /users  
 Body:
+
 - name
 - email
 - password
@@ -51,6 +49,7 @@ Body:
 **Login**  
 POST /login  
 Body:
+
 - email
 - password
 
@@ -83,6 +82,7 @@ GET /pets/:id
 **Criar pet (admin)**  
 POST /pets  
 Body:
+
 - name
 - species
 - status (padrão: available)
@@ -107,6 +107,7 @@ GET /adoptions
 **Realizar adoção (adopter)**  
 POST /adoptions  
 Body:
+
 - pet_id
 - user_id
 

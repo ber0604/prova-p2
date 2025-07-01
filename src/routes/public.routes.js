@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/pets/available', PublicController.petsAvailable);
 
-router.post('/users' , authorizeUserRegister(), PublicController.registerUser);
+router.post('/users', authorizeUserRegister(), PublicController.registerUser);
 
 router.post('/login', PublicController.login);
 
