@@ -24,7 +24,7 @@ class UserModel {
 
     static async getUsers() {
         const [rows] = await db.query('SELECT id, name, email, role FROM users');
-        return rows[0];
+        return rows;
     }
 
     static async updateUser(id, userData) {

@@ -1,5 +1,5 @@
 @baseURL = http://localhost:3000
-@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlcm5hcmRvQGlmcnMiLCJyb2xlIjoiYWRvcHRlZCIsImlkIjoyLCJpYXQiOjE3NTEzMzU3NjcsImV4cCI6MTc1MTMzOTM2N30.LC4jWCHLi4g-ZU2rENQERi4GaoLzcrnLs1HMyhcJjdc
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHNpc3RlbWEyLmNvbSIsInJvbGUiOiJhZG1pbiIsImlkIjo0LCJpYXQiOjE3NTEzMzc0ODgsImV4cCI6MTc1MTM0MTA4OH0.dshkXmQCEcvVVPE4HdvEej9lsDlu9X1vE34FFBDP3YA
 
 ### 📋 Listar todos os usuários
 GET {{baseURL}}/users
@@ -14,13 +14,12 @@ Authorization: {{token}}
 ###
 
 ### ✏️ Atualizar dados do usuário (substitua o ID)
-PUT {{baseURL}}/users/1
+PUT {{baseURL}}/users/4
 Content-Type: application/json
 Authorization: {{token}}
 
 {
-  "name": "João Atualizado",
-  "email": "joao_atualizado@example.com"
+  "name": "admin atualizado"
 }
 
 ### ✏️ Delete dados do usuário (substitua o ID)
@@ -41,7 +40,7 @@ Authorization: {{token}}
 
 ###
 
-### ✏️ Atualizar dados do pet (substitua o ID)
+### ✏️ criar dados do pet (substitua o ID)
 POST {{baseURL}}/pets
 Content-Type: application/json
 Authorization: {{token}}
@@ -81,6 +80,6 @@ Content-Type: application/json
 Authorization: {{token}}
 
 {
-  "pet_id": 3,
-  "user_id": 5
+  "pet_id": 2,
+  "user_id": 3
 }

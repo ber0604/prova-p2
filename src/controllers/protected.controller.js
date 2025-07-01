@@ -4,9 +4,9 @@ const AdoptionService = require('../services/adoptionService');
 
 class ProtectedController {
 
-    static getUsers(req, res) {
+    static async getUsers(req, res) {
         try {
-            const result = UserService.getUsers();
+            const result = await UserService.getUsers();
 
             return res.status(200).json({
                 users: result
@@ -46,9 +46,9 @@ class ProtectedController {
 
     static async deleteUserById(req, res) {
         try {
-            const { id } = req.params;
+            const id = req.params.id;
             await UserService.deleteUserById(id);
-            res.json({ message: 'Usuário deletador com sucesso.' });
+            res.json({ message: 'Usuário deletado com sucesso.' });
         } catch (error) {
             res.status(400).json({ error: error.message }); // Retorna erro se não
         }
@@ -63,11 +63,11 @@ class ProtectedController {
         }
     }
 
-    static getPets(req, res) {
+    static async getPets(req, res) {
         try {
-            const result = PetService.listPets();
+            const result = await PetService.listPets();
             return res.status(200).json({
-                pets: result
+                result
             });
         } catch (error) {
             return res.status(500).json({
@@ -77,12 +77,12 @@ class ProtectedController {
         }
     }
 
-    static getPetById(req, res) {
+    static async getPetById(req, res) {
         try {
-            const result = PetService.listPet(req.body.id);
+            const result = await PetService.listPet(req.params.id);
 
             return res.status(200).json({
-                pets: result
+                result
             });
         } catch (error) {
             return res.status(500).json({
@@ -94,7 +94,7 @@ class ProtectedController {
 
     static async updatePetById(req, res) {
         try {
-            const { id } = req.params;
+            const id = req.params.id;
             await PetService.editPet(id, req.body);
             res.json({ message: 'Pet atualizado com sucesso.' });
         } catch (error) {
@@ -104,7 +104,7 @@ class ProtectedController {
 
     static async deletePetById(req, res) {
         try {
-            const { id } = req.params;
+            const id = req.params.id;
             await PetService.removePet(id);
             res.json({ message: 'Pet deletado com sucesso.' });
         } catch (error) {
