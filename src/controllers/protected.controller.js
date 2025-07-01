@@ -111,9 +111,9 @@ class ProtectedController {
     }
   }
 
-  static getAdoptions(req, res) {
+  static async getAdoptions(req, res) {
     try {
-      const result = AdoptionService.listAdoptions();
+      const result = await AdoptionService.listAdoptions();
 
       return res.status(200).json({
         adoptions: result,

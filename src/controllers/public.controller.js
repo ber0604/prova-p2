@@ -25,9 +25,9 @@ class PublicController {
     }
   }
 
-  static petsAvailable(req, res) {
+  static async petsAvailable(req, res) {
     try {
-      const pets = PetService.listPetsAvailable();
+      const pets = await PetService.listPetsAvailable();
       return res.status(200).json({
         petsDisponiveis: pets,
       });

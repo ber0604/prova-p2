@@ -2,6 +2,8 @@
 
 Esta é uma API RESTful para gerenciamento de usuários, pets e adoções. Desenvolvida em Node.js com autenticação via JWT, permitindo operações CRUD protegidas com controle de acesso por **role** (`admin` ou `adopter`).
 
+Vídeo explicativo do projeto com testes: https://drive.google.com/file/d/1V_Da4wAnMpaBXmATGD0-NZoeWv2n34U1/view?usp=sharing
+
 ---
 
 ## 🚀 Início Rápido
