@@ -5,8 +5,8 @@ POST {{baseURL}}/users
 Content-Type: application/json
 
 {
-    "name" : "user2",
-    "email": "bernardo2@ifrs",
+    "name" : "victor",
+    "email": "victor@ifrs",
     "password": "senhanova",
     "role": "adopter"
 }
@@ -16,7 +16,7 @@ POST {{baseURL}}/login
 Content-Type: application/json
 
 {
-    "email": "bernardo@ifrs",
+    "email": "victor@ifrs",
     "password": "senhanova"
 }
 

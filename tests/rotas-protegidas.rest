@@ -1,5 +1,5 @@
 @baseURL = http://localhost:3000
-@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlcm5hcmRvQGlmcnMiLCJyb2xlIjoiYWRvcHRlZCIsImlkIjoyLCJpYXQiOjE3NTEzMzgwNzMsImV4cCI6MTc1MTM0MTY3M30.eGsNJXN2wBVPEl-V1-5PzLYAYHgUh_2xj9KVWsGZWv0
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdXJpY2lvQGlmcnMiLCJyb2xlIjoiYWRtaW4iLCJpZCI6NCwiaWF0IjoxNzUxNDEyMDg0LCJleHAiOjE3NTE0MTU2ODR9.pvmqtwqDgJnuq_o8CaLqy4zAC2SoPzICfj7cub59u7Q
 
 ### 📋 Listar todos os usuários
 GET {{baseURL}}/users
@@ -80,6 +80,5 @@ Content-Type: application/json
 Authorization: {{token}}
 
 {
-  "pet_id": 2,
-  "user_id": 3
+  "pet_id": 2
 }

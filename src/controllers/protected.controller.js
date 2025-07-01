@@ -128,6 +128,7 @@ class ProtectedController {
 
   static createAdoption(req, res) {
     try {
+      req.body.user_id = req.user.id;
       const result = AdoptionService.createAdoption(req.body);
       return res.status(201).json(result);
     } catch (error) {
